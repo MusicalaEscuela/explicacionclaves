@@ -1,0 +1,48 @@
+CLAVE A CLAVE · WEB EDUCATIVA
+========================================
+
+Una web para aprender desde cero qué son las claves musicales.
+
+CÓMO ABRIRLA
+1. Descomprime el archivo ZIP.
+2. Abre index.html con Chrome, Edge, Firefox o Safari.
+3. También puedes publicar la carpeta completa en GitHub Pages, Netlify,
+   Vercel o un alojamiento web estático, sin configurar nada adicional.
+
+FUNCIONES
+- Explicaciones visuales de las claves de Sol, Fa y Do.
+- Clave de Do en tercera línea (alto) y en cuarta línea (tenor).
+- Pentagrama interactivo para cambiar clave y mover la nota.
+- Sonidos generados en el navegador (Web Audio, requieren interacción).
+- Comparación del Do central en tres claves.
+- Cuestionarios de 8 preguntas y 3 dificultades.
+- Mejor puntuación por nivel guardada solo en este navegador.
+- Diseño adaptable para celular, tableta y computador.
+
+ESTRUCTURA
+- index.html : contenido y estructura
+- styles.css : diseño responsive
+- app.js : interacciones, lógica de notas, audio y ejercicios
+- assets/ : iconos SVG ilustrativos
+
+NO ES UNA PWA
+No tiene manifest.webmanifest, service worker, instalación,
+notificaciones ni almacenamiento en caché propio de una PWA.
+Es una web tradicional, sin servicios externos ni dependencias.
+
+NOTAS MUSICALES
+- Clave de Sol: Sol4 en la segunda línea.
+- Clave de Fa: Fa3 en la cuarta línea.
+- Clave de Do alto: Do4 en la tercera línea.
+- Clave de Do tenor: Do4 en la cuarta línea.
+- La numeración de octavas usada considera Do4 como Do central.
+- Los sonidos se sintetizan con afinación A4=440 Hz, sin audios externos.
+
+MUSICALA · Material pedagógico para comenzar a leer música.
+
+CRÉDITOS DE LOS SÍMBOLOS MUSICALES
+Los dibujos vectoriales de las claves en la carpeta assets/ se basan
+únicamente en los contornos de los glifos musicales del proyecto
+Noto Music, Copyright 2018 Google Inc., distribuido con licencia
+SIL Open Font License 1.1 (https://openfontlicense.org/).
+La web NO distribuye archivos de fuentes tipográficas.

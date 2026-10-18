@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#220A63">
+  <meta name="description" content="¿Para qué existen tantas claves musicales? Descubre cómo cada clave nos ayuda a escribir sonidos graves, medios y agudos. Una experiencia de Musicala.">
+  <title>Clave a clave | Musicala</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sacramento&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#inicio">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Clave a clave de Musicala, ir al inicio">
+        <img src="assets/logo-musicala.png" alt="" class="brand-logo">
+        <span class="brand-text">clave a clave<small>por musicala</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#problema">¿Por qué?</a>
+        <a href="#mapa">Mapa del sonido</a>
+        <a href="#claves">Las claves</a>
+        <a href="#instrumentos">Instrumentos</a>
+        <a href="#reto">Reto</a>
+      </nav>
+      <a class="header-cta" href="#mapa">Explorar el mapa</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+    <nav class="mobile-nav" id="mobileMenu" aria-label="Navegación móvil" hidden>
+      <a href="#problema">¿Por qué?</a><a href="#mapa">Mapa del sonido</a><a href="#claves">Las claves</a><a href="#instrumentos">Instrumentos</a><a href="#reto">Reto</a>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">La pregunta que todos hacemos</span>
+          <h1>¿Para qué <span class="grad">tantas claves</span>?</h1>
+          <p class="lead">Porque la música va desde sonidos muy <strong class="t-grave">graves</strong> hasta muy <strong class="t-agudo">agudos</strong>, y el pentagrama solo tiene 5 líneas. Cada clave <strong>enfoca una zona del sonido</strong> para que la escritura quepa y se lea fácil.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#problema">Entender por qué</a>
+            <a class="btn btn-ghost" href="#mapa">Ver el mapa del sonido</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-card">
+            <p class="hero-card-title">Tres claves, tres zonas</p>
+            <div class="hero-zones">
+              <div class="zone z-grave"><span class="zone-glyph">𝄢</span><strong>Fa</strong><small>graves</small></div>
+              <div class="zone z-medio"><span class="zone-glyph">𝄡</span><strong>Do</strong><small>medios</small></div>
+              <div class="zone z-agudo"><span class="zone-glyph">𝄞</span><strong>Sol</strong><small>agudos</small></div>
+            </div>
+            <div class="hero-piano" id="heroPiano"></div>
+            <p class="hero-card-foot">← más grave · · · más agudo →</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 PROBLEMA -->
+    <section class="section" id="problema">
+      <div class="container">
+        <div class="section-heading">
+          <span class="overline">01 · El problema</span>
+          <h2>El pentagrama es pequeño.<br><span class="script">la música no.</span></h2>
+          <p>Un piano tiene 88 teclas, pero un pentagrama solo muestra unas 9 notas sin ayuda. Cuando una nota se sale, hay que agregar <strong>líneas adicionales</strong>… y muchas seguidas son difíciles de leer.</p>
+        </div>
+        <div class="problem-frame">
+          <div class="problem-top">
+            <div>
+              <span class="lab-label">Experimento</span>
+              <h3>Escribe la misma melodía grave en dos claves</h3>
+            </div>
+            <div class="segmented" role="group" aria-label="Escoger clave para la melodía">
+              <button class="seg-option active" type="button" data-problem-clef="sol" aria-pressed="true">Clave de Sol</button>
+              <button class="seg-option" type="button" data-problem-clef="fa" aria-pressed="false">Clave de Fa</button>
+            </div>
+          </div>
+          <div class="problem-staff" id="problemStaff" role="img"></div>
+          <div class="problem-bottom">
+            <p id="problemText"></p>
+            <button class="sound-button" type="button" id="playMelody">♫ Escuchar la melodía</button>
+          </div>
+        </div>
+        <div class="big-idea">
+          <p><strong>La idea clave:</strong> no cambian los sonidos, cambia <em>la ventana</em> por la que los miramos. Elegimos la clave que pone las notas de una pieza justo dentro de las 5 líneas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 MAPA -->
+    <section class="section section-dark" id="mapa">
+      <div class="container">
+        <div class="section-heading">
+          <span class="overline overline-light">02 · El mapa del sonido</span>
+          <h2>Cada clave es una <span class="script">ventana</span></h2>
+          <p>Escoge una clave y mira qué teclas del piano caben en su pentagrama. Toca cualquier tecla para escucharla y ver en qué clave se lee más cómoda.</p>
+        </div>
+        <div class="map-frame">
+          <div class="segmented segmented-dark" role="group" aria-label="Ventana de clave">
+            <button class="seg-option" type="button" data-map-clef="fa" aria-pressed="false">𝄢 Fa · graves</button>
+            <button class="seg-option" type="button" data-map-clef="do" aria-pressed="false">𝄡 Do · medios</button>
+            <button class="seg-option active" type="button" data-map-clef="sol" aria-pressed="true">𝄞 Sol · agudos</button>
+            <button class="seg-option" type="button" data-map-clef="all" aria-pressed="false">Las tres</button>
+          </div>
+          <div class="map-piano" id="mapPiano"></div>
+          <div class="map-legend">
+            <span><i class="lg lg-grave"></i>Clave de Fa</span>
+            <span><i class="lg lg-medio"></i>Clave de Do</span>
+            <span><i class="lg lg-agudo"></i>Clave de Sol</span>
+            <span><i class="lg lg-c4"></i>Do central</span>
+          </div>
+          <div class="map-detail" aria-live="polite">
+            <div class="map-detail-text">
+              <span class="result-eyebrow">Tocaste</span>
+              <div class="note-big" id="mapNote">DO 4</div>
+              <p id="mapAdvice">Haz clic en una tecla.</p>
+            </div>
+            <div class="map-detail-staff" id="mapStaff"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 CLAVES -->
+    <section class="section section-soft" id="claves">
+      <div class="container">
+        <div class="section-heading centered">
+          <span class="overline">03 · Las tres familias</span>
+          <h2>Grave, medio, <span class="script">agudo</span></h2>
+          <p>Cada clave marca una nota de referencia en una línea. Ese punto de partida decide qué zona del sonido queda dentro del pentagrama.</p>
+        </div>
+        <div class="clef-cards">
+          <article class="clef-card c-grave">
+            <div class="clef-card-head"><span class="clef-tag">Registro grave</span></div>
+            <div class="clef-art"><div class="static-staff" data-clef="fa" data-note="6"></div></div>
+            <h3>Clave de Fa</h3>
+            <p>Sus dos puntos rodean la <strong>4.ª línea: Fa</strong>, debajo del Do central. Así los sonidos graves caben sin escaleras de líneas adicionales.</p>
+            <div class="use-case"><span>La usan</span><p>Contrabajo, violonchelo, fagot, trombón, tuba, voces graves y la mano izquierda del piano.</p></div>
+          </article>
+          <article class="clef-card c-medio">
+            <div class="clef-card-head"><span class="clef-tag">Registro medio</span></div>
+            <div class="clef-art"><div class="static-staff" data-clef="do" data-note="4"></div></div>
+            <h3>Clave de Do</h3>
+            <p>Su centro señala el <strong>Do central</strong>. Pone el Do central justo en el medio del pentagrama: ideal para instrumentos que viven en esa zona.</p>
+            <div class="use-case"><span>La usan</span><p>Viola (3.ª línea); violonchelo, fagot y trombón en sus notas agudas (4.ª línea).</p></div>
+          </article>
+          <article class="clef-card c-agudo">
+            <div class="clef-card-head"><span class="clef-tag">Registro agudo</span></div>
+            <div class="clef-art"><div class="static-staff" data-clef="sol" data-note="2"></div></div>
+            <h3>Clave de Sol</h3>
+            <p>Su espiral abraza la <strong>2.ª línea: Sol</strong>, encima del Do central. Es la ventana de los sonidos agudos.</p>
+            <div class="use-case"><span>La usan</span><p>Violín, flauta, trompeta, voces agudas, guitarra y la mano derecha del piano.</p></div>
+          </article>
+        </div>
+
+        <div class="compare-grid">
+          <div class="compare-copy">
+            <span class="overline">Un mismo sonido</span>
+            <h3>El <em>mismo Do central</em>, tres lugares distintos</h3>
+            <p>Para la clave de Fa, el Do central es agudo (está arriba). Para la de Sol, es grave (está abajo). Para la de Do, está justo en el centro. <strong>El sonido es el mismo; cambia el punto de vista.</strong></p>
+            <button type="button" class="sound-button" id="listenMiddleC">♫ Escuchar Do central</button>
+          </div>
+          <div class="compare-visual">
+            <div class="compare-row"><span>Fa · arriba</span><div class="compare-staff" data-clef="fa" data-note="10"></div></div>
+            <div class="compare-row"><span>Do · al centro</span><div class="compare-staff" data-clef="do" data-note="4"></div></div>
+            <div class="compare-row"><span>Sol · abajo</span><div class="compare-staff" data-clef="sol" data-note="-2"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 INSTRUMENTOS -->
+    <section class="section" id="instrumentos">
+      <div class="container">
+        <div class="section-heading">
+          <span class="overline">04 · ¿Y mi instrumento?</span>
+          <h2>Cada instrumento escoge <span class="script">su ventana</span></h2>
+          <p>La clave se elige según dónde suena el instrumento. Las barras muestran su zona aproximada sobre el mismo teclado.</p>
+        </div>
+        <div class="instrument-list" id="instrumentList"></div>
+        <div class="tip-note">
+          <p><strong>¿Y el piano?</strong> Abarca casi todo, así que usa <strong>dos claves a la vez</strong>: Sol arriba para la mano derecha y Fa abajo para la izquierda. El Do central queda justo entre las dos. A eso se le llama <em>gran pentagrama</em>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 RETO -->
+    <section class="section section-soft" id="reto">
+      <div class="container">
+        <div class="section-heading centered">
+          <span class="overline">05 · Pon a prueba la idea</span>
+          <h2>¿Qué clave le <span class="script">queda mejor?</span></h2>
+          <p>No hace falta leer notas. Solo piensa: ¿esto es grave, medio o agudo?</p>
+        </div>
+        <div class="practice-frame">
+          <div class="quiz-intro" id="quizIntro">
+            <h3>8 preguntas rápidas</h3>
+            <p>Te mostraremos un instrumento o un sonido en el piano. Tú escoges la clave que mejor lo escribe.</p>
+            <button class="btn btn-primary" id="startQuiz" type="button">Comenzar</button>
+            <div class="best-result" id="bestResult"></div>
+          </div>
+          <div class="quiz-play" id="quizPlay" hidden>
+            <div class="quiz-top"><span id="quizCounter">Pregunta 1 de 8</span><span id="quizScore">0 aciertos</span></div>
+            <div class="progress-track"><div id="quizProgress" class="progress-fill"></div></div>
+            <h3 id="quizQuestion"></h3>
+            <div class="quiz-visual" id="quizVisual"></div>
+            <div class="quiz-answers" role="group" aria-label="Opciones de respuesta">
+              <button type="button" class="answer-option a-grave" data-answer="fa">𝄢 Clave de Fa</button>
+              <button type="button" class="answer-option a-medio" data-answer="do">𝄡 Clave de Do</button>
+              <button type="button" class="answer-option a-agudo" data-answer="sol">𝄞 Clave de Sol</button>
+            </div>
+            <div class="quiz-feedback" id="quizFeedback" aria-live="polite"></div>
+            <button class="btn btn-primary quiz-next" id="nextQuestion" type="button" hidden>Siguiente</button>
+          </div>
+          <div class="quiz-end" id="quizEnd" hidden>
+            <span class="overline">Reto completado</span>
+            <h3 id="quizEndTitle">¡Terminaste!</h3>
+            <div class="final-score" id="finalScore">0 <span>/ 8</span></div>
+            <p id="quizEndText"></p>
+            <button type="button" class="btn btn-primary" id="retryQuiz">Volver a intentar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="dudas">
+      <div class="container faq-grid">
+        <div>
+          <span class="overline">Preguntas frecuentes</span>
+          <h2>Lo que siempre <span class="script">nos preguntan</span></h2>
+        </div>
+        <div class="faq-list">
+          <details><summary>¿No sería más fácil usar una sola clave para todo?</summary><p>Se podría, pero un contrabajo en clave de Sol viviría lleno de líneas adicionales debajo del pentagrama, y un flautín en clave de Fa, encima. Las claves existen justamente para <strong>evitar ese enredo</strong>: cada instrumento lee en la ventana donde suena.</p></details>
+          <details><summary>¿Tengo que aprender las tres claves?</summary><p>Normalmente no. Aprendes la de tu instrumento (o las dos del piano). Las demás es bueno entenderlas, sobre todo si vas a tocar en grupo, componer o arreglar.</p></details>
+          <details><summary>¿La clave de Sol solo sirve para sonidos agudos?</summary><p>Puede escribir cualquier sonido, pero es cómoda para la zona aguda. Una nota muy grave en clave de Sol necesita muchas líneas adicionales: posible, pero incómodo de leer.</p></details>
+          <details><summary>¿Por qué la clave de Do se mueve de línea?</summary><p>Para ajustar la ventana. En 3.ª línea (clave de alto) sirve a la viola; en 4.ª línea (clave de tenor) sirve a la zona aguda del violonchelo, el fagot y el trombón, sin saltar todavía a clave de Sol.</p></details>
+          <details><summary>¿Y la guitarra? Suena grave pero se escribe en clave de Sol.</summary><p>Buena observación. Por tradición, la guitarra se escribe en clave de Sol una octava más aguda de lo que suena, para que todo quepa en un solo pentagrama. A veces verás un pequeño 8 debajo de la clave que lo indica.</p></details>
+          <details><summary>¿Qué es eso de Do 4 o Mi 2?</summary><p>El número indica la <strong>octava</strong>: qué tan grave o agudo es ese Do o ese Mi. El Do 4 es el Do central del piano; los números menores son más graves.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA LECTURA -->
+    <section class="closing-section">
+      <div class="container closing-card">
+        <div>
+          <span class="overline overline-light">¿Quieres ir más allá?</span>
+          <h2>Ahora sí, <span class="script">a leer notas</span></h2>
+          <p>Ya sabes para qué sirve cada clave. Si quieres aprender a leer las notas en el pentagrama paso a paso y practicarlo, tenemos una guía hecha para eso.</p>
+          <a class="btn btn-light" href="https://musicalaescuela.github.io/explicacionlecturapentagrama/" target="_blank" rel="noopener">Ir a la guía de lectura ↗</a>
+        </div>
+        <div class="closing-glyph" aria-hidden="true">𝄞</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <img src="assets/logo-musicala.png" alt="Musicala" class="footer-logo">
+      <p class="footer-slogan">vida, alma y música</p>
+      <a href="#inicio">Volver arriba ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
